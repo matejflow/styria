@@ -1,0 +1,46 @@
+{% extends "home.html" %}
+
+{% block content %}
+<main>
+    <div class="container">
+        <div class="row-flex row-flex-middle margin-top-big">
+            <div class="col-50">
+                <h1 class="title">{{movie.name}}</h1>
+            </div>
+            <div class="col col-20">
+                <div class="movie-rating-title">
+                    <i class="material-icon">star_border</i>
+                    {{movie.rating_value}}<span>/100</span>
+                </div>
+            </div>
+        </div>
+        <div class="row-flex">
+            <div class="col col-50">
+                Studio: <strong>{{movie.production_company}}</strong> |
+                Content rating:
+                <div class="content-rating">
+                    {{movie.rating_content}}
+                </div>
+            </div>
+        </div>
+        {% if movie.image %}
+            <div class="row-flex">
+                <img src="{{movie.image}}" alt="" style="width: 100%; height: auto; margin-bottom: 3em;">
+            </div>
+        {% endif %}
+        <div class="row-flex">
+            <div class="col col-20">
+                <img src="{{movie.thumbnail}}" alt="">
+            </div>
+            <div class="col col-80">
+                <p style="padding-bottom: 1em; font-weight: bold">
+                    MOVIE SUMMARY:
+                </p>
+                <p>
+                    {{movie.description}}
+                </p>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

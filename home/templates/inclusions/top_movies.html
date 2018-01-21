@@ -1,0 +1,13 @@
+<p style="text-align: center; padding: 2em 0;">
+    <strong>TOP MOVIES</strong>
+</p>
+
+{% for movie in top_movies %}
+    <a class="top-movies" href="{% url 'movie_details' slug=movie.url %}">
+        <img src="{{movie.thumbnail}}"/>
+        <p>
+            {{movie.name}}
+            <span>{{movie.production_company}}</span>
+        </p>
+    </a>
+{% endfor %}

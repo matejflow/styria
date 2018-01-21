@@ -1,0 +1,33 @@
+{% extends "account.html" %}
+
+{% block content %}
+  <div class="row-flex">
+      <form action="" method="post" class="dark" >
+      {% csrf_token %}
+        <div class="input-icon">
+          <input type="text" name="username" id="username" placeholder="Username" required value="{{request.POST.username}}">
+          <i class="material-icon">person_outline</i>
+        {{form.errors.username}}
+        </div>
+        <div class="input-icon">
+          <input type="text" name="email" id="email" placeholder="Email" required value="{{request.POST.email}}">
+          <i class="material-icon">email_outline</i>
+          {{form.errors.email}}
+        </div>
+        <div class="input-icon">
+          <input type="password" name="password1" id="password1" placeholder="Password" required>
+          <i class="material-icon">lock_outline</i>
+          {{form.errors.password1}}
+        </div>
+        <div class="input-icon">
+          <input type="password" name="password2" id="password2" placeholder="Password" required>
+          <i class="material-icon">lock_outline</i>
+          {{form.errors.password2}}
+        </div>
+        <div class="col col-100 col-center">
+            <button>Register</button>
+        </div>
+      </form>
+  </div>
+  </div>
+{% endblock %}

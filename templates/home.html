@@ -1,0 +1,49 @@
+{% load static %}
+{% load cache %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RT Clone</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    {% block head %}{% endblock %}
+
+</head>
+<body>
+    <aside>
+        {% widget_top_movies %}
+    </aside>
+    <header>
+    <div class="container">
+        <div class="row-flex row-flex-middle">
+            <div class="col col-50">
+                <a href="{% url 'home_index' %}" id="logo">
+                    <i class="material-icon">star_half</i><span>movie</span>clone
+                </a>
+            </div>
+            <div class="col col-50 col-end">
+                <nav class="nav-header">
+                    <ul>
+                        {% if request.user.username %}
+                        <li>
+                            <a href="{% url 'logout' %}">
+                                Welcome {{request.user.username}} |
+                                Logout <i class="material-icon">power_settings_new</i>
+                            </a>
+                        </li>
+                        {% else%}
+                        <li>
+                            <a href="{% url 'login' %}">
+                                <i class="material-icon">person</i>Login
+                            </a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </div>
+    </header>
+    {% block content %}
+    {% endblock %}
+</body>
+</html>

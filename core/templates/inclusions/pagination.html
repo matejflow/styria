@@ -1,0 +1,47 @@
+{% load tags %}
+{% if paginate_by.paginator.count %}
+<ul class="pagination">
+    <div class="page-links">
+        {% if paginate_by.has_previous %}
+            <li>
+                <a href="?{% url_replace page=1 request=request %}">
+                    <i class="material-icon">first_page</i>
+                </a>
+            </li>
+            <li>
+                <a href="?{% url_replace page=paginate_by.previous_page_number request=request %}">
+                    <i class="material-icon">chevron_left</i>
+                </a>
+            </li>
+        {% else %}
+            <li><span><i class="material-icon">first_page</i></span></li>
+            <li><span><i class="material-icon">chevron_left</i></span></li>
+        {% endif %}
+        {% for i in paginate_by.page_range %}
+            {% if paginate_by.number == i %}
+                <li><span class="active-page">{{ i }}</span></li>
+            {% else %}
+                <li><a href="?{% url_replace page=i request=request %}">{{ i }}</a></li>
+            {% endif %}
+        {% endfor %}
+        {% if paginate_by.has_next %}
+            <li>
+                <a href="?{% url_replace page=paginate_by.next_page_number request=request %}">
+                    <i class="material-icon">chevron_right</i>
+                </a>
+            </li>
+            <li>
+                <a href="?{% url_replace page=paginate_by.paginator.num_pages request=request %}">
+                    <i class="material-icon">last_page</i>
+                </a>
+            </li>
+        {% else %}
+            <li><span><i class="material-icon">chevron_right</i></span></li>
+            <li><span><i class="material-icon">last_page</i></span></li>
+        {% endif %}
+    </div>
+    <div class="page-info">
+        {{ paginate_by.start_index }} - {{ paginate_by.end_index }} of {{paginate_by.paginator.count}}
+    </div>
+</ul>
+{% endif %}

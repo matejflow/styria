@@ -1,0 +1,16 @@
+-r requirements.in
+
+jupyter       # IPython in browser
+
+autopep8
+isort
+pycodestyle
+flake8
+pylint
+mypy
+django-debug-toolbar
+
+# test stuff
+pytest-django
+pytest-spec
+pytest-colordots

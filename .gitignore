@@ -1,0 +1,7 @@
+.ipynb_checkpoints/
+.sass-cache/
+.venv/
+__pycache__/
+*.css.map
+*.log
+*.ipynb

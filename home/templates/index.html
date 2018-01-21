@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+
+{% block content %}
+{% load static %}
+{% load tags %}
+<main>
+    <div class="container">
+        <div class="row-flex">
+            {% for movie in object_list%}
+                <div class="col col-20 padding-bottom">
+                    <a class="movie-thumbnail" href="{% url 'movie_details' slug=movie.url %}">
+                        <div class="rating">
+                            <i class="material-icon">star</i>{{movie.rating_value}}
+                        </div>
+                        <img src="{{movie.thumbnail}}"/>
+                    </a>
+                </div>
+            {% endfor %}
+        </div>
+        {% pagination %}
+    </div>
+</main>
+{% endblock %}

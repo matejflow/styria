@@ -1,0 +1,78 @@
+.messages {
+
+    li {
+        display: block;
+        background: $color-neutral;
+        padding: 1em;
+        margin-bottom: 1em;
+
+        strong {
+            font-weight: 700;
+        }
+
+        &.info {
+            border-top: 4px solid $color_info;
+        }
+
+        &.success {
+            border-top: 4px solid $color_success;
+        }
+
+        &.warning {
+            border-top: 4px solid $color_warning;
+        }
+
+        &.error{
+            border-top: 4px solid $color_error;
+            font-weight: 400;
+        }
+    }
+}
+
+ul.pagination {
+    margin-top: 18px;
+    position: relative;
+    display: block;
+
+    li {
+        display: inline-block;
+        position: relative;
+        width: 26px;
+        height: 26px;
+        color: $color-text-light;
+
+        a, span {
+            position: absolute;
+            display: block;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        a {
+            color: $color-primary;
+
+            &:hover {
+                color: $color-primary-lighten;
+                font-size: 150%;
+                font-weight: bold;
+            }
+        }
+    }
+
+    .page-links {
+        float: left;
+
+        .active-page {
+            border-radius: 2px;
+            padding: 8px;
+            color: #fff;
+            background: $color-primary;
+        }
+
+    }
+
+    .page-info {
+        float: right;
+    }
+}

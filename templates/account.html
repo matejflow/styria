@@ -1,0 +1,40 @@
+{% load static %}
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>{%if page_title %}{{page_title}} | {%endif%}Django Basic Setup</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.4/jquery.js"></script>
+    <script src="{% static 'js/main.js' %}" type="text/javascript"></script>
+    {% block head %}{% endblock %}
+
+</head>
+<style>
+    body {
+        background: #000;
+        background: url("https://cdnb.artstation.com/p/assets/images/images/004/666/953/large/tim-barton-hang-in-there-2250.jpg?1485401520") no-repeat top center;
+        background-size: cover;
+    }
+</style>
+<body>
+    <div class="center-all">
+        <div class="container" style="width: 400px;">
+            <div id="logo" style="padding: 1em; color: white; text-align: center">
+                <p><i class="material-icon">star_half</i><span>movie</span>clone</p>
+            </div>
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                        {{ message|safe }}
+                    </li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+            {% block content %}
+            {% endblock %}
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,84 @@
+.movie-thumbnail {
+    position: relative;
+    display: block;
+
+    &:hover {
+        opacity: .75;
+    }
+
+    .rating {
+        position: absolute;
+        top: 1em;
+        left: 0;
+        z-index: 100;
+        background: transparentize($color-bg-body, .1);
+        color: $color-secondary;
+        padding: .25em .5em;
+        font-size: 87.5%;
+
+        .material-icon{
+            margin-top: -2px;
+            margin-right: .3em;
+        }
+    }
+
+}
+
+.movie-rating-title {
+    color: $color-secondary;
+    font-weight: font-weight-bold;
+    font-size: 200%;
+
+    i {
+        margin-top: -6px;
+        margin-left: 1em;
+    }
+
+    span {
+        font-size: 50%;
+        font-weight: $font-weight-light;
+        color: $color-text-light;
+    }
+}
+
+.content-rating {
+    font-weight: $font-weight-bold;
+    color: $color-neutral;
+    background: $color-text-dark;
+    line-height: 1;
+    padding: 0.3em .6em;
+    display: inline-block;
+    border-radius: 3px;
+    margin-bottom: 2em;
+}
+
+.top-movies {
+    display: block;
+    overflow: auto;
+    height: auto;
+    padding: 1em;
+
+    img {
+        float: left;
+        margin-right: 1.5em;
+        height: 80px;
+        width: 80px;
+        border-radius: 50%;
+    }
+
+    p {
+        font-size: 92.75%;
+
+        span {
+            font-size: 93.3%;
+            margin-top: .25em;
+            color: $color-text-lightest;
+            display: block;
+        }
+    }
+
+    &:hover {
+        background: lighten($color-bg-aside, 5%)
+    }
+
+}

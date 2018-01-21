@@ -1,0 +1,30 @@
+{% extends "account.html" %}
+
+{% block content %}
+  <div class="row-flex">
+      <form action="" method="post" class="dark" >
+      {% csrf_token %}
+        <div class="input-icon">
+          <input type="text" name="username" id="username" placeholder="Username" required autofocus>
+          <i class="material-icon">person_outline</i>
+        </div>
+        <div class="input-icon">
+          <input type="password" name="password" id="password" placeholder="Password" required>
+          <i class="material-icon">lock_outline</i>
+        </div>
+        <div class="col col-100 col-center">
+            <button>Login</button>
+        </div>
+      </form>
+  </div>
+  <div class="row-flex">
+    <div class="col col-100 col-center">
+        <a href="{% url 'home_index' %}">
+            Back to Index page
+        </a> | 
+        <a href="{% url 'password_reset_request' %}">
+          Retrieve password
+        </a>
+    </div>
+  </div>
+{% endblock %}
